@@ -1,0 +1,38 @@
+group 'by.bsu.enrolleeservice'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'spring-boot'
+
+buildscript {
+    ext {
+        springBootVersion = '1.4.2.RELEASE'
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+
+    repositories {
+        mavenCentral()
+    }
+}
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile('org.springframework.boot:spring-boot-starter')
+    compile('org.springframework.boot:spring-boot-starter-web')
+    compile('org.springframework.boot:spring-boot-starter-test')
+    compile('org.springframework.cloud:spring-cloud-starter:1.1.6.RELEASE')
+    compile('org.springframework.cloud:spring-cloud-starter-eureka-server:1.2.3.RELEASE')
+    compile group: 'com.sun.mail', name: 'javax.mail', version: '1.5.6'
+
+    compileOnly('org.projectlombok:lombok')
+
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+}
